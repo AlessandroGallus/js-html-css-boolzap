@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Boolzapp</title>
 </head>
@@ -36,12 +37,82 @@
           <div class="bot"><a href="#"><p>Attiva notifiche desktop</p></a></div>
         </div>
       </div>
+
+      <div class="chats">
+        <div class="searchbar">
+
+          <i class="fas fa-search"></i>
+          
+          <input type="text" placeholder="Cerca o inizia una nuova chat">
+        </div>
+
+        <div class="all_chats">
+          <div 
+            class="utente" 
+            v-for="(utente, index) in contacts"
+            @click ="active_index = index"
+          >
+            <img src="assets/img/avatar_1.jpg" alt="">
+            <h3>
+              {{utente.name}}
+            </h3>
+          </div>  
+        </div>
+      </div>
     </div>
     <div class="main">
 
       <header>
-        <img src="assets/img/avatar_1.jpg" alt="">
+        <div class="utente_corrente">
+          <img src="assets/img/avatar_1.jpg" alt="">
+          <div class="wrapper-m-75">
+
+            <div class="top">
+              {{contacts[active_index].name}} 
+            </div>
+            <div class="bot">Ultimo accesso alle </div>
+
+          </div>
+          <div class="right">
+
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+  
+          </div>
+        </div>
+        
       </header>
+      <div class="chat">
+        <div class="chat-wrapper-90">
+
+
+
+          
+          <div 
+            class="message"
+            v-for="(messaggio, message_index) in contacts[active_index].messages"
+            :class="messaggio.status === 'sent' ? 'sent' : 'received'"
+          >
+            <div class="txt">
+              {{messaggio.text}}
+            </div>
+            <div class="data">{{messaggio.date}}</div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <footer>
+        <div class="emoticons">
+          <i class="far fa-smile"></i>
+        </div>
+        <div class="chat-input-container"><input type="text" placeholder="Scrivi un messaggio" class="messaggio"></div>
+        <div class="audio">
+          <i class="fas fa-microphone"></i>
+        </div>
+      </footer>
 
     </div>
 
