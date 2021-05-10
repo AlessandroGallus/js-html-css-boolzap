@@ -59,13 +59,16 @@
             :class="utente.name.includes(search_user) ? 'show' : 'hide'"
           >
             <img :src="'assets/img/avatar'+utente.avatar+'.jpg'" alt="avatar">
-            <div class="top">
-              <h3>
-                {{utente.name}}
-              </h3>
+            <div class="container_utente">
+              <div class="top">
+                <h3>
+                  {{utente.name}}
+                </h3>
+              </div>
+              <div class="bot">
+                {{utente.messages[utente.messages.length-1].text}}
             </div>
-            <div class="bot">
-              {{utente.messages[utente.messages.length-1].text}}
+            
             </div>
           </div>  
         </div>
@@ -77,13 +80,15 @@
         <div class="utente_corrente">
           <img :src="'assets/img/avatar'+ contacts[active_index].avatar +'.jpg'" alt="">
           <div class="wrapper-m-75">
-
-            <div class="top">
-              {{contacts[active_index].name}} 
+              <div class="top">
+                {{contacts[active_index].name}} 
+              </div>
+              <div class="bot">
+                Ultimo accesso alle {{contacts[active_index].messages[contacts[active_index].messages.length-1].date}}
+              </div>
+  
             </div>
-            <div class="bot">Ultimo accesso alle {{contacts[active_index].messages[contacts[active_index].messages.length-1].date}}</div>
-
-          </div>
+            
           <div class="right">
 
             <i class="fas fa-search"></i>

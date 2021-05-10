@@ -87,15 +87,15 @@ margin-left: 10px;
   width:100%;
 }
 .container_utente{
-  width:calc(100% - 65px)
+  display: inline-block;
+  height:100%;
+  width:calc(100% - 65px);
 }
 .utente .top,
 .utente .bot{
-  display: flex;
   float: top;
+  display: flex;
   height:50%;
-  width:calc(100% - 85px);
-  flex-wrap: wrap;
   padding:1px 10px;
   flex-wrap: wrap;
 }
