@@ -52,7 +52,7 @@
             v-for="(utente, index) in contacts"
             @click ="active_index = index"
           >
-            <img src="assets/img/avatar_1.jpg" alt="">
+            <img :src="'assets/img/avatar'+utente.avatar+'.jpg'" alt="avatar">
             <h3>
               {{utente.name}}
             </h3>
@@ -64,13 +64,13 @@
 
       <header>
         <div class="utente_corrente">
-          <img src="assets/img/avatar_1.jpg" alt="">
+          <img :src="'assets/img/avatar'+ contacts[active_index].avatar +'.jpg'" alt="">
           <div class="wrapper-m-75">
 
             <div class="top">
               {{contacts[active_index].name}} 
             </div>
-            <div class="bot">Ultimo accesso alle </div>
+            <div class="bot">Ultimo accesso alle</div>
 
           </div>
           <div class="right">
@@ -97,6 +97,7 @@
             <div class="txt">
               {{messaggio.text}}
             </div>
+            <div class="message_menu"><i class="fas fa-chevron-down"></i></div>
             <div class="data">{{messaggio.date}}</div>
           </div>
 
