@@ -87,7 +87,8 @@ margin-left: 10px;
   width:100%;
 }
 .container_utente{
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
   height:100%;
   width:calc(100% - 65px);
 }
@@ -99,6 +100,10 @@ margin-left: 10px;
   padding:1px 10px;
   flex-wrap: wrap;
 }
+.utente .top{
+  width:100%;
+}
+.hour{width:50%;}
 .top, .bot{
   display: flex;
   float: top;
@@ -144,6 +149,7 @@ margin-left: 10px;
   background-color: white;
 }
 .utente{
+  overflow:initial;
   width:100%;
   height: 90px;
   align-items: center;
@@ -223,6 +229,7 @@ footer{
   flex-direction: column;
 }
 .message{
+
   padding: 10px; 
   width: max-content;
   min-width: 300px;
@@ -230,6 +237,9 @@ footer{
   margin:15px 0;
   border-radius: 5px;
   word-wrap: break-word;
+}
+.messaggio{
+  outline: none;
 }
 .sent{
   background-color: #D5F9BA;

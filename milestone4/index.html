@@ -56,7 +56,7 @@
             class="utente" 
             v-for="(utente, index) in contacts"
             @click ="active_index = index"
-            :class="utente.name.includes(search_user) ? 'show' : 'hide'"
+            :class="utente.name.toLowerCase().includes(search_user.toLowerCase()) ? 'show' : 'hide'"
           >
             <img :src="'assets/img/avatar'+utente.avatar+'.jpg'" alt="avatar">
             <div class="container_utente">
