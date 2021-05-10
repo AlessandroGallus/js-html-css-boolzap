@@ -91,8 +91,23 @@ const app = new Vue({
       },
     ],
     active_index:0,
+    str_new_msg :''
   },
   methods:{
-
+    generateMessage(){
+      this.contacts[this.active_index].messages.push({
+        date: dayjs(),
+        text: this.str_new_msg,
+        status: 'sent'
+      });
+      this.str_new_msg = '';
+      setTimeout(()=>{
+        this.contacts[this.active_index].messages.push({
+          date: dayjs(),
+          text: "ok",
+          status: 'received'
+        });
+      },1000)
+    }
   }
 } )

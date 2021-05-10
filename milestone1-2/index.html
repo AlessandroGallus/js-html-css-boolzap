@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolzapp</title>
+</head>
+<body>
+
+  <div id="app" class="container">
+    
+    <div class="aside">
+
+      <header>
+        <div class="left">
+          <img src="assets/img/avatar_io.jpg" alt="">
+          <span>Nome utente</span>
+        </div>
+        <div class="right">
+          <i class="fas fa-circle-notch"></i>
+          <i class="fas fa-comment-alt"></i>
+          <i class="fas fa-ellipsis-v"></i>
+        </div>
+        
+      </header>
+      <div class="notifications">
+        <i class="fas fa-bell-slash"></i>
+        <div class="wrapper">
+          <div class="top"><p>Ricevi notifiche di nuovi messaggi</p></div>
+          <div class="bot"><a href="#"><p>Attiva notifiche desktop</p></a></div>
+        </div>
+      </div>
+
+      <div class="chats">
+        <div class="searchbar">
+
+          <i class="fas fa-search"></i>
+          
+          <input type="text" placeholder="Cerca o inizia una nuova chat">
+        </div>
+
+        <div class="all_chats">
+          <div 
+            class="utente" 
+            v-for="(utente, index) in contacts"
+            @click ="active_index = index"
+          >
+            <img :src="'assets/img/avatar'+utente.avatar+'.jpg'" alt="avatar">
+            <h3>
+              {{utente.name}}
+            </h3>
+          </div>  
+        </div>
+      </div>
+    </div>
+    <div class="main">
+
+      <header>
+        <div class="utente_corrente">
+          <img :src="'assets/img/avatar'+ contacts[active_index].avatar +'.jpg'" alt="">
+          <div class="wrapper-m-75">
+
+            <div class="top">
+              {{contacts[active_index].name}} 
+            </div>
+            <div class="bot">Ultimo accesso alle</div>
+
+          </div>
+          <div class="right">
+
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+  
+          </div>
+        </div>
+        
+      </header>
+      <div class="chat">
+        <div class="chat-wrapper-90">
+
+
+
+          
+          <div 
+            class="message"
+            v-for="(messaggio, message_index) in contacts[active_index].messages"
+            :class="messaggio.status === 'sent' ? 'sent' : 'received'"
+          >
+            <div class="txt">
+              {{messaggio.text}}
+            </div>
+            <div class="message_menu"><i class="fas fa-chevron-down"></i></div>
+            <div class="data">{{messaggio.date}}</div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <footer>
+        <div class="emoticons">
+          <i class="far fa-smile"></i>
+        </div>
+        <div class="chat-input-container">
+          <input 
+          type="text" 
+          placeholder="Scrivi un messaggio" id="message_input" 
+          class="messaggio"
+        >
+
+        </div>
+        <div class="audio">
+          <i class="fas fa-microphone"></i>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <script src="assets/sctipt.js"></script>
+</body>
+</html>
