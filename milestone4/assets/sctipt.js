@@ -108,7 +108,7 @@ const app = new Vue({
           text: "ok",
           status: 'received'
         });
-      },1000)
+      },1000);
     }
   }
 } )

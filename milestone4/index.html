@@ -48,7 +48,7 @@
             type="text" 
             placeholder="Cerca o inizia una nuova chat"
             v-model="search_user"
-          >
+            >
         </div>
 
         <div class="all_chats">
@@ -56,11 +56,17 @@
             class="utente" 
             v-for="(utente, index) in contacts"
             @click ="active_index = index"
+            :class="utente.name.includes(search_user) ? 'show' : 'hide'"
           >
             <img :src="'assets/img/avatar'+utente.avatar+'.jpg'" alt="avatar">
-            <h3>
-              {{utente.name}}
-            </h3>
+            <div class="top">
+              <h3>
+                {{utente.name}}
+              </h3>
+            </div>
+            <div class="bot">
+              {{utente.messages[utente.messages.length-1].text}}
+            </div>
           </div>  
         </div>
       </div>
@@ -75,7 +81,7 @@
             <div class="top">
               {{contacts[active_index].name}} 
             </div>
-            <div class="bot">Ultimo accesso alle</div>
+            <div class="bot">Ultimo accesso alle {{contacts[active_index].messages[contacts[active_index].messages.length-1].date}}</div>
 
           </div>
           <div class="right">
