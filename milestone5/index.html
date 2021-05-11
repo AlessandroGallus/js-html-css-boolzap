@@ -114,7 +114,11 @@
               {{messaggio.text}}
             </div>
             <div class="message_menu">
-              <i class="fas fa-chevron-down">
+              <i class="fas fa-chevron-down" 
+                 @click="show_info_box = !show_info_box">
+                  <div class="infobox" 
+                      :class="'show_info_box' ? 'show' : 'hide'">
+                  </div>
               </i>
             </div>
             <div class="data">{{messaggio.date}}</div>
