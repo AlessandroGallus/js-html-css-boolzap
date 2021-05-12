@@ -287,4 +287,10 @@ footer{
   z-index: 999;
   right: 10px;
   border: 1px solid black;
+  flex-direction: column;
+}
+.info_message, .delete_message{
+  height:50%;
+  width: 100%;
+  
 }

@@ -113,14 +113,20 @@
             <div class="txt">
               {{messaggio.text}}
             </div>
-            <div class="message_menu" @click="clickMessage">
+            <div class="message_menu" @click="clickMessage(message_index)">
               <i class="fas fa-chevron-down" 
                  >
               </i>
               
             </div>
-            <div class="infobox hide" id="dropdown">
-              
+            <div
+               class="infobox hide"
+               id="dropdown"
+               :class="show_info_box == true && message_index == active_message ? 'show' : 'hide'"
+               >
+
+              <div class="info_message">Info</div>
+              <div class="delete_message">Cancella messaggio</div>
             </div>
             <div class="data">{{messaggio.date}}</div>
             
