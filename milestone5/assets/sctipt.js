@@ -94,7 +94,7 @@ const app = new Vue({
     str_new_msg :'',
     search_user:'',
     show_info_box: false,
-    active_message: undefined
+    active_message: 0
   },
   methods:{
     generateMessage(){
@@ -115,6 +115,12 @@ const app = new Vue({
     clickMessage(message_index){
       this.show_info_box = !this.show_info_box
       this.active_message = message_index
+    },
+    cancellaMessaggio(indice_utente, indice_messaggio){
+
+      this.contacts[indice_utente].messages.splice(indice_messaggio, 1)
+      this.show_info_box = false;
+
     }
   }
 } )

@@ -125,8 +125,8 @@
                :class="show_info_box == true && message_index == active_message ? 'show' : 'hide'"
                >
 
-              <div class="info_message">Info</div>
-              <div class="delete_message">Cancella messaggio</div>
+              <div class="info_message">Message Info</div>
+              <div class="delete_message" @click="cancellaMessaggio(active_index, message_index)">Cancella messaggio</div>
             </div>
             <div class="data">{{messaggio.date}}</div>
             
