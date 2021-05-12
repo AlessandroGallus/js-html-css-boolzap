@@ -113,14 +113,15 @@
             <div class="txt">
               {{messaggio.text}}
             </div>
-            <div class="message_menu">
+            <div class="message_menu" @click="clickMessage">
               <i class="fas fa-chevron-down" 
-                 @click="show_info_box = !show_info_box">
-                  <div class="infobox" 
-                      :class="'show_info_box' ? 'show' : 'hide'">
-                  </div>
+                 >
               </i>
+              
             </div>
+            <div class="infobox hide" id="dropdown">
+              ciao
+          </div>
             <div class="data">{{messaggio.date}}</div>
             
 
@@ -130,7 +131,6 @@
 
 
         </div>
-      </div>
       <footer>
         <div class="emoticons">
           <i class="far fa-smile"></i>
@@ -149,7 +149,7 @@
           <i class="fas fa-microphone"></i>
         </div>
       </footer>
-
+    
     </div>
 
   </div>

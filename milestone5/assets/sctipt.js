@@ -93,7 +93,8 @@ const app = new Vue({
     active_index:0,
     str_new_msg :'',
     search_user:'',
-    show_info_box: false
+    show_info_box: false,
+    active_message: undefined
   },
   methods:{
     generateMessage(){
@@ -111,5 +112,14 @@ const app = new Vue({
         });
       },1000);
     },
+    clickMessage(){
+      this.show_info_box = !this.show_info_box
+      this.active_message = this.message_index
+      if(this.message_index === message_index && this.show_info_box == true){
+        let messaggio = document.getElementById("dropdown");
+        messaggio.classList.toggle('hide')
+        messaggio.classList.toggle('show')
+      }
+    }
   }
 } )
