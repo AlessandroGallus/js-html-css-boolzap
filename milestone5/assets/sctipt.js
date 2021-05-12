@@ -94,7 +94,7 @@ const app = new Vue({
     str_new_msg :'',
     search_user:'',
     show_info_box: false,
-    active_message: undefined
+    active_message: 0
   },
   methods:{
     generateMessage(){
@@ -115,7 +115,7 @@ const app = new Vue({
     clickMessage(){
       this.show_info_box = !this.show_info_box
       this.active_message = this.message_index
-      if(this.message_index === message_index && this.show_info_box == true){
+      if(this.message_index === this.active_message && this.show_info_box == true){
         let messaggio = document.getElementById("dropdown");
         messaggio.classList.toggle('hide')
         messaggio.classList.toggle('show')
